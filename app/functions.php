@@ -58,8 +58,7 @@ function hello_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'top-left' => esc_html__( 'Top Left Menu', 'hello' ),
-		'top-right' => esc_html__( 'Top Right Menu', 'hello' ),
+		'top-menu' => esc_html__( 'Top Menu', 'hello' ),
 		'social' => esc_html__( 'Social Menu', 'hello' ),
 		'breadcrumb' => esc_html__( 'Custom breadcrumb', 'hello' ),
 		'footer' => esc_html__( 'Footer Menu', 'hello' ),
