@@ -129,8 +129,8 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'images'], () => {
       routes: {
         '/bower_components': 'bower_components',
       },
-      'index': 'mockup.html',
     },
+    startPath: '/static/',
   });
 
   gulp.watch([
@@ -247,6 +247,12 @@ gulp.task( 'deploy:watch', () => {
     console.log('Changes detected! Uploading file "' + event.path + '", ' + event.type);
     return up(event.path,'app') ;
   });
+
+  gulp.watch('app/**/*.jade', ['views']);
+  gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/fonts/**/*', ['fonts']);
+  gulp.watch('app/images/**/*', ['images']);
+  gulp.watch('bower.json', ['wiredep', 'fonts']);
 
 }) ;
 

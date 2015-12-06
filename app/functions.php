@@ -72,6 +72,7 @@ function hello_setup() {
 	add_theme_support( 'html5', array(
 		'gallery',
 		'caption',
+    'search-form',
 	) );
 
 	/*
@@ -90,6 +91,7 @@ function hello_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
 }
 endif; // hello_setup
 add_action( 'after_setup_theme', 'hello_setup' );
@@ -127,7 +129,7 @@ add_action( 'wp_enqueue_scripts', 'hello_scripts' );
 
 function hello_body_class($class = ''){
   $classes = array();
-  // $classes[] = 'has-navbar-top' ;
+  $classes[] = 'has-navbar-top' ;
 
   if ( is_admin_bar_showing() ) {
     $classes[] = 'has-admin-bar' ;

@@ -16,13 +16,11 @@ html.no-js(__!=-language_attributes())
       
       header#masthead.site-header(role='banner')
         - $locations = get_nav_menu_locations();
-        nav#site-navigation.site-navigation.navbar.navbar-inverse.navbar-top(role='navigation')
+        nav#site-navigation.site-navigation.navbar.navbar-default.navbar-fixed-top(role='navigation')
           .container
-            ul.nav.navbar-nav.navbar-center
-              li
-                a(href='/about') About us
+            ul.nav.navbar-nav
               - if ( get_header_image() ) :
-              li.text-center
+              li
                 a.navbar-logo(href!=esc_url( home_url( '/' ) ))
                   img(src!=-header_image())
               - elseif ( display_header_text() ) :
@@ -30,60 +28,37 @@ html.no-js(__!=-language_attributes())
                 a.navbar-brand(href!=esc_url( home_url( '/' ) ))
                   - bloginfo( 'name' );
               - endif;
-              li
-                a(href='/event') Learn & Get Involved
-                
+            
+            - if ( has_nav_menu( 'top-menu' ) ) :
+            - wp_nav_menu( array( 'theme_location' => 'top-menu', 'menu_class' => 'nav navbar-nav'));
+            - endif;
+            
             ul.nav.navbar-nav.navbar-right
               li
-                a(href='https://twitter.com/Open_COP21')
-                  span.fa.fa-twitter
-            //-   - if ( has_nav_menu( 'top-left' ) ) :
-            //-   li.dropdown
-            //-     a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            //-       - _e( wp_get_nav_menu_object( $locations['top-left'] )->name ) ;
-            //-       span.glyphicon.glyphicon-chevron-down
-            //-     - wp_nav_menu( array( 'theme_location' => 'top-left', 'menu_class' => 'dropdown-menu', 'container' => null ) );
-            //-   - endif;
-            //-   - if ( get_header_image() ) :
-            //-   li
-            //-     a.navbar-brand(href='#')
-            //-       img(src!=-header_image())
-            //-   - elseif ( display_header_text() ) :
-            //-   li
-            //-     a.navbar-brand(href='#') 
-            //-       - bloginfo( 'name' );
-            //-   - endif;
-            //-   - if ( has_nav_menu( 'top-right' ) ) :
-            //-   li.dropdown
-            //-     a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            //-       - _e( wp_get_nav_menu_object( $locations['top-right'] )->name ) ;
-            //-       span.glyphicon.glyphicon-chevron-down
-            //-     - wp_nav_menu( array( 'theme_location' => 'top-right', 'menu_class' => 'dropdown-menu', 'container' => null ) );
-            //-   - endif;
-            //- - if ( has_nav_menu( 'social' ) ) :
-            //-   - wp_nav_menu( array( 'theme_location' => 'social', 'menu_class' => 'nav navbar-nav navbar-right' ) );
-            //- - endif;
+                - get_search_form();
       
       // #masthead
       #content
         block content
       
-      footer#colophon.site-footer(role='contentinfo')
-        .container
-          .row
-            .col-xs-12.col-md-6.footer-text
-              - hello_footer_text();
-            .col-xs-12.col-md-6
-              nav.navbar.navbar-inverse
-                - if ( has_nav_menu( 'footer' ) ) :
-                  - wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav navbar-nav'  ) );
-                - endif;
-                p.navbar-text.navbar-right
-                  a.navbar-link(href='#')
-                    - _e( 'Back to top', '###' );
-                    span.glyphicon.glyphicon-chevron-up
-      // #colophon
     // #page
+    // footer is OUT of the #page.site container  
+    footer#colophon.site-footer(role='contentinfo')
+      .container
+        .row
+          .col-xs-12.col-md-4.footer-text
+            - hello_footer_text();
+          .col-xs-12.col-md-4
+            - if( hello_is_plugin_active('lang') ) :
+              nav.navbar.navbar-inverse
+                - qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
+            - endif;
+          .col-xs-12.col-md-4
+            nav.navbar.navbar-inverse
+              - if ( has_nav_menu( 'footer' ) ) :
+                - wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav navbar-nav navbar-right'  ) );
+              - endif;
+    // #colophon
     - wp_footer();
   // body
 // html

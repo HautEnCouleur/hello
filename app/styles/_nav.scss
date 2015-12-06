@@ -1,3 +1,7 @@
+.has-navbar-top{
+  padding-top: $navbar-height ;
+}
+
 .has-admin-bar {
 
   .navbar-top {
@@ -38,21 +42,6 @@
       display: inline-block;
       vertical-align: middle ;
 
-      min-width: 210px ;
-      margin: 0 $navbar-padding-horizontal ;
-
-      .dropdown-toggle {
-
-        // cf. bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_dropdowns.scss
-        // class .dropdown-menu line 31
-        // sorry no variables avalaible from bootstrap ...
-        min-width: 160px ;
-
-        .glyphicon, .fa {
-          margin-left: $navbar-padding-horizontal ;
-        }
-      }
-
       .navbar-brand {
         .navbar > .container &,
         .navbar > .container-fluid & {
@@ -70,6 +59,29 @@
 
     }
 
+}
+
+.site-header {
+  .navbar-center {
+    li {
+
+      min-width: 210px ;
+      margin: 0 $navbar-padding-horizontal ;
+
+      .dropdown-toggle {
+
+        // cf. bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_dropdowns.scss
+        // class .dropdown-menu line 31
+        // sorry no variables avalaible from bootstrap ...
+        min-width: 160px ;
+
+        .glyphicon, .fa {
+          margin-left: $navbar-padding-horizontal ;
+        }
+      }
+
+    }
+  }
 }
 
 .sticky-row {
@@ -95,6 +107,7 @@
   &.navbar-top {
     background-color: rgba(0,0,0,0.5);
   }
+
 }
 
 .navbar-breadcrumb {
@@ -171,4 +184,11 @@ footer {
       margin-left: 10px ;
     }
   }
+
+  ul.language-chooser {
+    @extend .nav;
+    @extend .navbar-nav;
+    text-transform: lowercase;
+  }
+
 }

@@ -6,6 +6,19 @@
  * @subpackage hello
  */
 
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+function hello_is_plugin_active( $name ){
+  switch ($name) {
+    case 'composer':
+      return is_plugin_active( 'js_composer/js_composer.php' ) ;
+    case 'lang':
+      return is_plugin_active( 'qtranslate-x/qtranslate.php' ) ;
+    default:
+      return false ;
+  }
+}
+
 /**
  * Include the TGM_Plugin_Activation class.
  */
@@ -30,7 +43,7 @@ function hello_register_js_composer_plugins() {
             'name'          => 'WPBakery Visual Composer', // The plugin name
             'slug'          => 'js_composer', // The plugin slug (typically the folder name)
             'source'            => get_stylesheet_directory() . '/libraries/js_composer.zip', // The plugin source
-            'required'          => true, // If false, the plugin is only 'recommended' instead of required
+            'required'          => false, // If false, the plugin is only 'recommended' instead of required
             'version'           => '4.8', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
             'force_activation'      => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
             'force_deactivation'    => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins

@@ -23,7 +23,7 @@ $breadcrumb-bg-hover-image: "../images/breadcrumb-bg-hover.png" ;
 $spacer-vertical: 50px ;
 $slider-height: 512px ;
 
-$footer-margin-top-fix: 17.5px ;
+$footer-margin-top-fix: 15.5px ;
 
 // bootstrap overides
 // cf. bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
@@ -50,6 +50,8 @@ $headings-font-weight:    200;
 $navbar-default-bg:       map-get( $palette, "color-lighter-gray" );
 $navbar-default-border:   map-get( $palette, "color-light-gray" );
 
+$navbar-inverse-link-active-bg: transparent;
+
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "bower_components/font-awesome/scss/font-awesome.scss";
@@ -62,8 +64,20 @@ $navbar-default-border:   map-get( $palette, "color-light-gray" );
   padding: 0.2em 0;
 }
 
+html, body {
+  min-height: 100% ;
+}
+
 body {
   font-weight: 200 ;
+  background-color: map-get( $palette, "color-dark-gray" );
+  color: $navbar-inverse-color ;
+}
+
+.site {
+  background-color: white ;
+  color: $text-color ;
+  min-height: 512px ;
 }
 
 .container-sm {
@@ -111,13 +125,12 @@ section {
 
 footer {
 
+  height: 100%;
+
   padding-top: $spacer-vertical ;
   padding-bottom: $spacer-vertical / 2 ;
 
   font-size: 80% ;
-
-  background-color: map-get( $palette, "color-dark-gray" );
-  color: $navbar-inverse-color ;
 
   .footer-text {
     vertical-align: middle;
@@ -129,6 +142,12 @@ footer {
 /*--------------------------------------------------------------
 ## Pages
 --------------------------------------------------------------*/
+
+article.page {
+	max-width: $container-md ;
+  margin: 0 auto ;
+  padding: $spacer-vertical $padding-base-horizontal ;
+}
 
 
 /*--------------------------------------------------------------
