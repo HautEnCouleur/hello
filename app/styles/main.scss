@@ -64,10 +64,6 @@ $navbar-inverse-link-active-bg: transparent;
   padding: 0.2em 0;
 }
 
-html, body {
-  min-height: 100% ;
-}
-
 body {
   font-weight: 200 ;
   background-color: map-get( $palette, "color-dark-gray" );
@@ -143,7 +139,9 @@ footer {
 ## Pages
 --------------------------------------------------------------*/
 
-article.page {
+article.page,
+article.post,
+ {
 	max-width: $container-md ;
   margin: 0 auto ;
   padding: $spacer-vertical $padding-base-horizontal ;
