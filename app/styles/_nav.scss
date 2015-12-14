@@ -13,12 +13,10 @@
     top: 32px ;
   }
 
-}
-
-.vc_editor {
-  .navbar-fixed-top {
-    top: 56px ;
+  &.vc_editor .navbar-fixed-top {
+    top: 0 ;
   }
+
 }
 
 .navbar-top {
