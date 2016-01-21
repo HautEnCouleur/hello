@@ -219,6 +219,15 @@ gulp.task( 'deploy:dev', ['build'], () => {
 
 }) ;
 
+gulp.task( 'deploy:local', ['build'], () => {
+  console.log("local deploy!");
+
+  return gulp.src('dist/**/*')
+    .pipe( gulp.dest(config.local.path));
+  console.log("copying dist to " + config.local.path);
+
+}) ;
+
 gulp.task( 'deploy:watch', () => {
 
   let conn = getDeployStream(config.dev) ;
