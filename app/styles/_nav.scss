@@ -16,10 +16,18 @@
   &.vc_editor .navbar-fixed-top {
     top: 0 ;
   }
+	
+	&.has-navbar-top {
+    // nope
+  }
 
 }
 
 .navbar-top {
+  position: absolute;
+  width: 100% ;
+  margin-bottom: 0 ;
+  border-radius: 0;
   z-index: $zindex-navbar-fixed ;
 }
 
