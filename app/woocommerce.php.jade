@@ -1,19 +1,19 @@
 extends layouts/wp-default
 
 block top-comment
-  :php
-    /**
-     * The template file for woocommerce shop pages.
-     *
-     * @package wordpress
-     * @subpackage hello
-     */
+	:php
+		/**
+		 * The template file for woocommerce shop pages.
+		 *
+		 * @package wordpress
+		 * @subpackage hello
+		 */
 
 block content
-  #primary.content-area
-    #main.site-main.site-main--woocommerce(role='site-main')
-      .container
-        - woocommerce_content();
-    // #main
-  // #primary
+	#primary.content-area
+		#main.site-main.site-main--woocommerce(role='site-main')
+			.container
+				- woocommerce_content();
+		// #main
+	// #primary
 // [jade] block content

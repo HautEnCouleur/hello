@@ -94,27 +94,25 @@ deploy the template code (`dist` folder) to your **local** folder (see `.deployr
 
 ## Folder Structure 
 
-> WIP
-
     .
     ├── .tmp/
     ├── app/                        # 
     │   ├── images/                 # Images 
-    │   ├── includes/               # Table of contents
+    │   ├── includes/               # Other PHP files
     │   ├── languages/              # I18N
-    │   ├── layouts/                # 
-    │   ├── libraries/              # 
-    │   ├── scripts/                # 
-    │   ├── [static/]?              # 
-    │   ├── styles/                 # 
-    │   ├── index.php.jade          # 
+    │   ├── layouts/                # Master Jade files (html tags are here)
+    │   ├── layouts/parts           # Jade modules
+    │   ├── libraries/              # External crappy PHP libraries
+    │   ├── scripts/                # JavaScript 
+    │   ├── [static/]?              # Mockup pages (gulp serve)
+    │   ├── styles/                 # SASS (SCSS)
+    │   ├── index.php.jade          # Main PHP file
     │   ├── robots.txt              # 
-    │   ├── screenshot.png          # 
-    │   ├── searchform.php.jade     # 
-    │   ├── style.css               # 
-    │   ├── woocommerce.php.jade    # 
-    │   ├── screenshot.png          # 
-    │   └── functions.php           # 
+    │   ├── screenshot.png          # Wordpress theme image
+    │   ├── searchform.php.jade     # Search Form
+    │   ├── style.css               # WordPress theme information (no CSS : cf. SASS)
+    │   ├── woocommerce.php.jade    # Woocommerce loop
+    │   └── functions.php           # theme functions
     ├── [bower_components/]         # Bower / front end dependencies
     ├── [dist/]                     # 
     ├── [node_modules/]             # NPM dependencies (Gulp,Babel,Jade...)
