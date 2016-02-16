@@ -1,64 +1,69 @@
 block top-comment
 doctype html
 html.no-js(__!=-language_attributes())
-  head
-    meta(charset!=-bloginfo( 'charset' ))
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    link(rel='profile' href='http://gmpg.org/xfn/11')
-    link(rel='pingback' href!=-bloginfo( 'pingback_url' ))
-    
-    - wp_head();
-    
-  body(__!=-body_class())
-    #page.site
-      a.skip-link.screen-reader-text(href='#content')
-        - esc_html_e( 'Skip to content', '###' ) ;
-      
-      header#masthead.site-header(role='banner')
-        - $locations = get_nav_menu_locations();
-        nav#site-navigation.site-navigation.navbar.navbar-default.navbar-fixed-top(role='navigation')
-          .container
-            ul.nav.navbar-nav
-              - if ( get_header_image() ) :
-              li
-                a.navbar-logo(href!=esc_url( home_url( '/' ) ))
-                  img(src!=-header_image())
-              - elseif ( display_header_text() ) :
-              li
-                a.navbar-brand(href!=esc_url( home_url( '/' ) ))
-                  - bloginfo( 'name' );
-              - endif;
-            
-            - if ( has_nav_menu( 'top-menu' ) ) :
-            - wp_nav_menu( array( 'theme_location' => 'top-menu', 'menu_class' => 'nav navbar-nav'));
-            - endif;
-            
-            ul.nav.navbar-nav.navbar-right
-              li
-                - get_search_form();
-      
-      // #masthead
-      #content
-        block content
-      
-    // #page
-    // footer is OUT of the #page.site container  
-    footer#colophon.site-footer(role='contentinfo')
-      .container
-        .row
-          .col-xs-12.col-md-4.footer-text
-            - hello_footer_text();
-          .col-xs-12.col-md-4
-            - if( hello_is_plugin_active('lang') ) :
-              nav.navbar.navbar-inverse
-                - qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
-            - endif;
-          .col-xs-12.col-md-4
-            nav.navbar.navbar-inverse
-              - if ( has_nav_menu( 'footer' ) ) :
-                - wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav navbar-nav navbar-right'  ) );
-              - endif;
-    // #colophon
-    - wp_footer();
-  // body
+	head
+		meta(charset!=-bloginfo( 'charset' ))
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		link(rel='profile' href='http://gmpg.org/xfn/11')
+		link(rel='pingback' href!=-bloginfo( 'pingback_url' ))
+		
+		- wp_head();
+		
+	body(__!=-body_class())
+		#page.site
+			a.skip-link.screen-reader-text(href='#content')
+				- esc_html_e( 'Skip to content', '###' ) ;
+			
+			header#masthead.site-header(role='banner')
+				- $locations = get_nav_menu_locations();
+				nav#site-navigation.site-navigation.navbar.navbar-default.navbar-fixed-top(role='navigation')
+					.container
+						.navbar-header 
+							button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse') 
+								span.sr-only Toggle navigation 
+								span.icon-bar 
+								span.icon-bar 
+								span.icon-bar 
+							- if ( get_header_image() ) :
+							a.navbar-logo(href!=esc_url( home_url( '/' ) ))
+								img(src!=-header_image())
+							- elseif ( display_header_text() ) :
+							a.navbar-brand(href!=esc_url( home_url( '/' ) ))
+								- bloginfo( 'name' );
+							- endif;
+							
+						.navbar-collapse.collapse
+							ul.nav.navbar-nav							
+							- if ( has_nav_menu( 'top-menu' ) ) :
+							- wp_nav_menu( array( 'theme_location' => 'top-menu', 'menu_class' => 'nav navbar-nav'));
+							- endif;
+							
+							ul.nav.navbar-nav.navbar-right
+								li
+									- get_search_form();
+			
+			// #masthead
+			#content
+				block content
+			
+		// #page
+		// footer is OUT of the #page.site container  
+		footer#colophon.site-footer(role='contentinfo')
+			.container
+				.row
+					.col-xs-12.col-md-4.footer-text
+						- hello_footer_text();
+					.col-xs-12.col-md-4
+						- if( hello_is_plugin_active('lang') ) :
+							nav.navbar.navbar-inverse
+								- qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
+						- endif;
+					.col-xs-12.col-md-4
+						nav.navbar.navbar-inverse
+							- if ( has_nav_menu( 'footer' ) ) :
+								- wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav navbar-nav navbar-right'  ) );
+							- endif;
+		// #colophon
+		- wp_footer();
+	// body
 // html
