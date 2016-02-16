@@ -26,6 +26,14 @@ var _imageminPngcrush = require('imagemin-pngcrush');
 
 var _imageminPngcrush2 = _interopRequireDefault(_imageminPngcrush);
 
+var _gitBranch = require('git-branch');
+
+var _gitBranch2 = _interopRequireDefault(_gitBranch);
+
+var _chalk = require('chalk');
+
+var _chalk2 = _interopRequireDefault(_chalk);
+
 var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
@@ -159,6 +167,9 @@ _gulp2.default.task('wiredep', function () {
   })).pipe(_gulp2.default.dest('app/layouts/'));
 });
 
+var currentBranch = _gitBranch2.default.sync();
+$.util.log(_chalk2.default.blue("current git branch is " + currentBranch));
+
 var config = JSON.parse(_fs2.default.readFileSync('./.deployrc'));
 
 function getDeployStream(configSet) {
@@ -216,6 +227,12 @@ _gulp2.default.task('deploy:watch', function () {
     .pipe(conn.dest(config.dev.path));
   };
 
+  _gulp2.default.watch('app/**/*.jade', ['views']);
+  _gulp2.default.watch('app/styles/**/*.scss', ['styles']);
+  _gulp2.default.watch('app/fonts/**/*', ['fonts']);
+  _gulp2.default.watch('app/images/**/*', ['images']);
+  _gulp2.default.watch('bower.json', ['wiredep', 'fonts']);
+
   _gulp2.default.watch(['.tmp/**/*']).on('change', function (event) {
     console.log('Changes detected! Uploading file "' + event.path + '", ' + event.type);
     return up(event.path, '.tmp');
@@ -235,6 +252,10 @@ _gulp2.default.task('deploy:watch', function () {
 
 _gulp2.default.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], function () {
   return _gulp2.default.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
+});
+
+_gulp2.default.task('nop', function () {
+  $.util.log(_chalk2.default.green('>>> gulp file looks OK, thus I did not launch any task yet !'));
 });
 
 _gulp2.default.task('default', ['clean'], function () {
