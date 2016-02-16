@@ -25,9 +25,9 @@ The [jade](http://jade-lang.com/) template engine was added for the mockups gene
 
 ## requirement
 
-- Nodejs (tested with v0.10.28)
-- npm (tested with v1.4.9)
-
+- NodeJS (tested with v0.10.28)
+- npm (v3+ if you're on windows, to avoid the long path bug with nested node_modules folders...)
+- python (< v3)
 
 -------
 
@@ -124,4 +124,3 @@ deploy the template code (`dist` folder) to your **local** folder (see `.deployr
     ├── package.json                # 
     └── README.md                   # This file
 
-  
