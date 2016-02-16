@@ -104,11 +104,11 @@ deploy the template code (`dist` folder) to your **local** folder (see `.deployr
     │   ├── layouts/parts           # Jade modules
     │   ├── libraries/              # External crappy PHP libraries
     │   ├── scripts/                # JavaScript 
-    │   ├── [static/]?              # Mockup pages (gulp serve)
+    │   ├── static/                 # Mockup pages (gulp serve) in Jade
     │   ├── styles/                 # SASS (SCSS)
     │   ├── index.php.jade          # Main PHP file
     │   ├── robots.txt              # 
-    │   ├── screenshot.png          # Wordpress theme image
+    │   ├── screenshot.png          # WordPress theme image
     │   ├── searchform.php.jade     # Search Form
     │   ├── style.css               # WordPress theme information (no CSS : cf. SASS)
     │   ├── woocommerce.php.jade    # Woocommerce loop

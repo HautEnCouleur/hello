@@ -5,6 +5,16 @@
  * @package wordpress
  * @subpackage hello
  */
+/** Custom Header */
+require get_template_directory() . '/includes/custom-header.php';
+
+/** Customizer */
+require get_template_directory() . '/includes/customizer.php';
+
+/** Plugins */
+require_once get_template_directory() . '/includes/plugins.php';
+
+require get_template_directory() . '/includes/custom-menu-walker.php'; 
 
 if ( ! function_exists( 'hello_content_width' ) ) :
 /**
@@ -143,27 +153,18 @@ function hello_body_class($class = ''){
 }
 add_filter( 'body_class', 'hello_body_class' ) ;
 
-function hello_nav_menu_args( $args = '' ) {
-	$args['container'] = false;
-	return $args;
-}
-// add_filter( 'wp_nav_menu_args', 'hello_nav_menu_args' );
-
 function hello_footer_text() {
-  echo esc_html(get_theme_mod('custom_footer_text','hello 0.1.0')) ;
+	echo esc_html(get_theme_mod('custom_footer_text','hello 0.1.0')) ;
 }
 
-/**
- * Custom Header
- */
-require get_template_directory() . '/includes/custom-header.php';
+// ---- Bootstrap Recursive Menu
 
-/**
- * Customizer
- */
-require get_template_directory() . '/includes/customizer.php';
+function nav_link_att($atts, $item, $args) {
+	if ( $args->has_children && $item->menu_item_parent == 0 ){
+		$atts['data-toggle'] = 'dropdown';
+		$atts['class'] = 'dropdown-toggle';
+	}
+	return $atts;
+}
+add_filter('nav_menu_link_attributes', 'nav_link_att', 10, 3);
 
-/**
- * Plugins
- */
-require_once get_template_directory() . '/includes/plugins.php';

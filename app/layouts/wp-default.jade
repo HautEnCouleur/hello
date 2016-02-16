@@ -35,7 +35,7 @@ html.no-js(__!=-language_attributes())
 						.navbar-collapse.collapse
 							ul.nav.navbar-nav
 							- if ( has_nav_menu( 'top-menu' ) ) :
-							- wp_nav_menu( array( 'theme_location' => 'top-menu', 'menu_class' => 'nav navbar-nav'));
+							- wp_nav_menu(array( 'container_class' => 'menu-header', 'theme_location' => 'top-menu', 'items_wrap' => '<ul id="%1$s" class="%2$s nav navbar-nav">%3$s</ul>', 'walker' => new BS3_Walker_Nav_Menu));
 							- endif;
 							
 							ul.nav.navbar-nav.navbar-right

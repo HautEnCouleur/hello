@@ -437,6 +437,24 @@ object {
   width: auto;
 }
 
+
+/*--------------------------------------------------------------
+# Bootstrap recursive menu 
+--------------------------------------------------------------*/
+.site-navigation{
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children {
+		position: relative;
+	}
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children>ul {
+		position: absolute;
+		top: 0px;
+		left: 100%;
+	}
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children:hover>ul {
+		display: block;
+	}
+}
+
 /*--------------------------------------------------------------
 # WooCommerce
 --------------------------------------------------------------*/
