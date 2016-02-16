@@ -177,6 +177,10 @@ article.post,
   }
 }
 
+.wpb_single_image .vc_figure {
+    display: block; /* inline-block*/
+}
+
 .media-grid-caption {
   height: 120px ;
 }
