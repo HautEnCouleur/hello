@@ -101,6 +101,8 @@ function hello_setup() {
 		'default-image' => ''
 	) ) );
 
+	/* Enable support for WooCommerce*/
+	add_theme_support( 'woocommerce' );
 }
 endif; // hello_setup
 add_action( 'after_setup_theme', 'hello_setup' );
