@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+## Visual Composer
+--------------------------------------------------------------*/
+
+.vc_row {
+  &.wpb_row , .wpb_wrapper {
+	max-width: $container-lg ;
+	margin-left: auto ;
+	margin-right: auto ;
+  }
+  &.full-width-background {
+	max-width: 100% ;
+  }
+}
+
+.vc_row[data-vc-full-width]{
+	max-width: 100% ;
+}
+
+.vc_row[data-vc-stretch-content]{
+  .wpb_wrapper {
+	max-width: 100% ;
+  }
+}
+
+.wpb_single_image .vc_figure {
+	display: block; /* inline-block*/
+}
+
+.media-grid-caption {
+  height: 120px ;
+}

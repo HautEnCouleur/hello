@@ -1,0 +1,132 @@
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.container-sm {
+  @include container-fixed;
+  width: $container-sm;
+}
+
+html, body {
+  height: 100%;
+  margin: 0 !important;
+}
+
+body > footer {
+
+  height: $footer-height;
+  clear: both;
+
+  background-color: $navbar-inverse-bg;
+  color: $navbar-inverse-color;
+
+  padding-top: $spacer-vertical ;
+  padding-bottom: $spacer-vertical / 2 ;
+
+  font-size: 80% ;
+
+  h1, h2, h3, h4, h5 {
+    color: $navbar-inverse-color;
+  }
+
+  .footer-text {
+  	vertical-align: middle;
+  	margin-top: $footer-margin-top-fix ;
+  }
+
+}
+
+#page.page-full-height {
+
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto (-1 * $footer-height) ;
+
+  .push {
+    height: $footer-height;
+    clear: both;
+  }
+
+}
+
+$headroom-offset: $navbar-height + ($padding-large-vertical * 2) ;
+
+#page.content-full-height {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto ( -1 * $headroom-offset ) ;
+
+  .content-stretch {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .push {
+    height: $footer-height;
+    clear: both;
+  }
+}
+
+.headroom {
+  will-change: transform;
+  transition: transform 200ms linear;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.headroom--pinned {
+  transform: translateY(0%);
+}
+.headroom--unpinned {
+  transform: translateY(-100%);
+}
+
+.headroom + .content {
+  margin-top: $headroom-offset ;
+}
+
+section {
+
+  padding: 15px 25px ;
+
+  &.slider {
+	padding: 0 ;
+	min-height: $slider-height ;
+  }
+
+  &.punch-line {
+
+	text-align: center ;
+
+	h2 {
+	  padding-bottom: 15px ;
+	}
+
+	p {
+	  font-size: $font-size-large ;
+	  font-weight: 300;
+	  margin-bottom: $spacer-vertical / 2 ;
+	  &:last-child {
+		margin-bottom: $spacer-vertical ;
+	  }
+	}
+  }
+
+  &.partner {
+	margin-top: $spacer-vertical ;
+	border-top: 1px solid $gray-lighter ;
+	padding: $spacer-vertical 0 ;
+	text-align: center ;
+  }
+
+}

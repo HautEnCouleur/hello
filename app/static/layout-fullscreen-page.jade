@@ -1,12 +1,12 @@
 extends ../layouts/static
 
 block content
-  #page.site.content-full-height
-    header#masthead.site-header(role='banner')
+  #page.site.page-full-height
+    header.site-header(role='banner')
       nav.navbar.navbar-inverse.navbar-static-top
         .container-fluid
           .navbar-header
-            a.navbar-toggle.collapsed(href='#')
+            a.navbar-toggle.collapsed(href='#', data-toggle='offcanvas', data-target='.offcanvas-sidebar')
               i.fa.fa-lg.fa-bars
             a.navbar-brand(href='#') logo
           
@@ -40,11 +40,7 @@ block content
                     a(href='#') cat 03
                   li.divider
                   li
-                    a(href='#') last
-            
-            ul.nav.navbar-nav.navbar-right
-              li
-                a(href='#') footer            
+                    a(href='#') last          
 
             ul.nav.navbar-nav.navbar-right.language
               li
@@ -71,7 +67,7 @@ block content
           h1 main content
           p page | post | visual composer | woo commerce
           p
-            button.btn.btn-primary#btn-full-height-content(type='button',data-toggle="button") full height content
+            button.btn.btn-primary.active#btn-full-height-page(type='button',data-toggle="button") full height page
             button.btn.btn-primary#btn-add-spacer(type='button') add spacer
           .theme-spacer.template
             .remove-spacer

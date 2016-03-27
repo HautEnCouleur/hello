@@ -1,0 +1,93 @@
+/*--------------------------------------------------------------
+## Pages
+--------------------------------------------------------------*/
+
+/* When not using VC !!! concerns the "stretch row and content" */
+/*article.page,
+article.post {
+	max-width: $container-md ;
+  	margin: 0 auto ;
+  	padding: $spacer-vertical $padding-base-horizontal ;
+}*/
+
+
+/*--------------------------------------------------------------
+## The loop
+--------------------------------------------------------------*/
+
+article.loop {
+
+
+	$thumb-width : 300px ;
+	$icon-size : 64px ;
+	$icon-font-size : 32px ;
+
+
+	.entry-thumbnail {
+		@include square($thumb-width) ;
+		background-size: cover ;
+		background-position: center center ;
+	}
+
+	.entry-summary {
+
+		padding: 15px ;
+
+		min-height: $icon-size ;
+
+		font-size: $icon-size / 3 ;
+
+		.dashicons {
+
+			float: left ;
+
+			margin: 0px 10px 10px 0px ;
+
+			font-size: $icon-size * 0.8 ;
+
+			@include square( $icon-size ) ;
+
+			color: $brand-primary ;
+			padding-top: 2px  ;
+
+		}
+
+	}
+
+	.entry-meta {
+
+		@include square($thumb-width) ;
+		position: absolute ;
+
+		padding: 15px ;
+
+		background-color: rgba(0, 0, 0, 0.5) ;
+		opacity: 0 ;
+
+		text-align: center ;
+		color: white ;
+
+		.dashicons {
+			@include square( $icon-font-size ) ;
+			font-size: $icon-font-size ;
+			background-color: $brand-primary ;
+			color: white ;
+			padding-top: 1px ;
+		}
+
+		a:hover{
+			text-decoration: none ;
+		}
+
+		.entry-title {
+			font-size: 24px ;
+		}
+
+		&:hover {
+			opacity: 1 ;
+		}
+
+
+	}
+
+}

@@ -22,6 +22,7 @@ phpjade.init(jade);
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
+    .pipe($.clipEmptyFiles())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
@@ -47,16 +48,11 @@ function lint(files, options) {
 gulp.task('lint', lint('app/scripts/**/*.js'));
 
 gulp.task('html', ['views', 'styles'], () => {
-  const assets = $.useref.assets({searchPath: ['.tmp', '.tmp/includes', 'app', '.']});
-
-  return gulp.src(['app/*.html', '.tmp/**/*.html', '.tmp/**/*.php'])
-    .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
-    .pipe(assets.restore())
-    .pipe($.useref())
-    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
-    .pipe(gulp.dest('dist'));
+  return gulp.src('.tmp/static/**/*.html')
+    .pipe($.useref({
+      searchPath: ['.', '.tmp', '.tmp/includes', 'app', 'app/scripts', 'app/styles'],
+      }))
+    .pipe(gulp.dest('dist/static'));
 });
 
 gulp.task('views', () => {
@@ -106,12 +102,17 @@ gulp.task('extras', () => {
     '!app/{layouts,layouts/**}',
     '!app/{images,images/**}',
     '!app/{fonts,fonts/**}',
+    '!app/{scripts,scripts/**}',
     '!app/**/*.html',
     '!app/**/*.scss',
     '!app/**/*.jade',
   ], {
     dot: true,
-  }).pipe(gulp.dest('dist'));
+  })
+  .pipe($.if('*.js', $.uglify()))
+  .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+  //.pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -163,12 +164,16 @@ gulp.task('serve:dist', () => {
 // inject bower components
 gulp.task('wiredep', () => {
   gulp.src('app/styles/*.scss')
+    .pipe($.plumber())
+    .pipe($.clipEmptyFiles())
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/,
     }))
     .pipe(gulp.dest('app/styles'));
 
   gulp.src(['app/layouts/*.jade'])
+    .pipe($.plumber())
+    .pipe($.clipEmptyFiles())
     .pipe(wiredep({
       exclude: ['jquery', 'bootstrap-sass', 'modernizr'],
       ignorePath: /^(\.\.\/)*\.\./,

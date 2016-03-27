@@ -1,3 +1,172 @@
+.navbar-header .navbar-toggle {
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.navmenu-inverse .navbar-nav li a {
+  color: $navbar-inverse-link-color;
+  &:hover, &:active {
+    color: $navbar-inverse-link-hover-color;
+  }
+}
+
+.navbar-inverse {
+  .navbar-toggle {
+    color: $navbar-inverse-link-hover-color;
+    &.collapsed {
+      color: $navbar-inverse-link-color;
+      &:hover, &:active {
+        color: $navbar-inverse-link-hover-color;
+      }
+    }
+  }
+  .input-group-addon {
+    color: $navbar-inverse-link-color;
+  }
+}
+
+.navmenu-inverse, .navbar-inverse .navbar-offcanvas {
+  background-color: $navbar-inverse-bg;
+  border-color: $navbar-inverse-border;
+}
+
+.navbar-offcanvas {
+  left: 100%;
+  width: 100%;
+
+  &.in {
+    width: 100%;
+  }
+
+  .navbar-form {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+  }
+
+}
+
+#header-menu, .offcanvas-sidebar {
+
+  .search-form {
+
+    .btn-back-offcanvas {
+      @extend .pull-left;
+      padding-top: $padding-base-vertical + 1px ;
+      display: none;
+    }
+
+    .search {
+      .input-group-addon {
+        cursor: pointer;
+        @include transition(all 0.2s);
+        &:hover, &:active {
+          color: $navbar-inverse-link-hover-color;
+        }
+      }
+
+      input[type='text'] {
+        @include transition(all 0.2s);
+
+        @media (min-width: $screen-sm-min) {
+          width: 0;
+          &.show {
+            width: $header-search-input-size;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  ul.language ul.dropdown-menu {
+    text-align: right;
+    min-width: 92px;
+  }
+
+
+  @media (max-width: $screen-xs-max) {
+    .search-form {
+      margin: 0 20px;
+      border: 0;
+      box-shadow: none;
+      .btn-back-offcanvas {
+        display: inline-block;
+      }
+    }
+
+    ul.navbar-nav {
+      text-align: center;
+      margin: 10px 0;
+      ul.dropdown-menu {
+        text-align: center;
+        li > a {
+          padding: 0;
+        }
+      }
+    }
+
+    ul.language {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+
+      li a.dropdown-toggle {
+        display: none;
+      }
+
+      ul.dropdown-menu {
+        display: block;
+        position: relative;
+        float: none;
+        background-color: transparent;
+        box-shadow: none;
+        max-width: 200px;
+        margin: 0 auto;
+        li {
+          width: 50%;
+          float: left;
+          padding: 0;
+          text-align: center;
+        }
+        a {
+          color: $navbar-inverse-link-color;
+          &:hover, &:active {
+            color: $navbar-inverse-link-hover-color;
+            background-color: $navbar-inverse-bg;
+            border-color: $navbar-inverse-border;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.offcanvas-sidebar {
+  right: 100%;
+  width: 100%;
+
+  &.in {
+    width: 100%;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    display: none;
+  }
+
+  .search-form {
+    margin: 0 5px;
+  }
+
+}
+
 .has-navbar-top{
 	padding-top: $navbar-height ;
 }
@@ -16,7 +185,7 @@
 	&.vc_editor .navbar-fixed-top {
 		top: 0 ;
 	}
-	
+
 	&.has-navbar-top {
 		// nope
 	}
@@ -33,17 +202,18 @@
 .navbar-right {
 	margin-right: 0;
 }
-.collapse.in{
-	.navbar-nav{
-		margin: 6.25px -12px !important;
-	}
-	.navbar-form{
-		margin: 0;
-	}
-	.navbar-right {
-		margin-right: 0;
-	} 
-}
+
+// .collapse.in{
+// 	.navbar-nav{
+// 		margin: 6.25px -12px !important;
+// 	}
+// 	.navbar-form{
+// 		margin: 0;
+// 	}
+// 	.navbar-right {
+// 		margin-right: 0;
+// 	}
+// }
 
 .navbar-center
 {
@@ -75,111 +245,6 @@
 	}
 }
 
-.site-header {
-	.navbar-center {
-		li {
-
-			min-width: 210px ;
-			margin: 0 $navbar-padding-horizontal ;
-
-			.dropdown-toggle {
-
-				// cf. bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_dropdowns.scss
-				// class .dropdown-menu line 31
-				// sorry no variables avalaible from bootstrap ...
-				min-width: 160px ;
-
-				.glyphicon, .fa {
-					margin-left: $navbar-padding-horizontal ;
-				}
-			}
-
-		}
-	}
-}
-
-.sticky-row {
-	&.affix {
-		top: $navbar-height ;
-		width: 100% ;
-		// z-index: $zindex-navbar-fixed ;
-	}
-
-	&.affix-top { }
-
-	&.affix-bottom { }
-}
-
-.navbar {
-	font-family: $headings-font-family ;
-}
-
-.navbar-inverse {
-	background-color: transparent ;
-	border-color: transparent ;
-	&.navbar-top {
-		background-color: rgba(0,0,0,0.5);
-	}
-}
-
-.navbar-breadcrumb {
-	border-radius: 0;
-	border-width: 1px 0 1px 0 ;
-	min-height: 102px ;
-	.navbar-nav {
-
-		.breadcrumb-fix-left, .breadcrumb-fix-right , .breadcrumb-fix-center {
-			position: absolute;
-			background-color: white;
-			height: 100%;
-			width: 50% ;
-			margin: 0;
-			visibility: hidden ;
-			&.active {
-				visibility: visible ;
-			}
-		}
-
-		.breadcrumb-fix-left { left: 0; }
-		.breadcrumb-fix-center { width: 350px ; right: 50% ;}
-		.breadcrumb-fix-right { right: 0; }
-
-		li {
-			height: 100%;
-			overflow: visible;
-			min-width: 250px ;
-			a {
-				margin-right: -35px ;
-				height: 100px ;
-				padding-top: 35px ;
-				padding-left: 25px ;
-				background: url($breadcrumb-bg-image) center right no-repeat transparent ;
-				text-align: left ;
-
-				&:hover {
-					background: url($breadcrumb-bg-hover-image) center right no-repeat transparent ;
-					color: map-get( $palette, "color-light-green" );
-				}
-			}
-
-			&.current_page_item a {
-				background: url($breadcrumb-bg-active-image) center right no-repeat $navbar-default-bg ;
-				color: map-get( $palette, "color-light-green" );
-			}
-
-			&:last-of-type {
-				a {
-					background-image: none;
-				}
-
-				&.current_page_item a {
-					background-color: white ;
-				}
-			}
-		}
-	}
-}
-
 footer {
 	.navbar-text {
 		margin-top: $footer-margin-top-fix ;
@@ -194,4 +259,21 @@ footer {
 		text-transform: lowercase;
 	}
 
+}
+
+/*--------------------------------------------------------------
+# Bootstrap recursive menu
+--------------------------------------------------------------*/
+.site-navigation{
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children {
+		position: relative;
+	}
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children>ul {
+		position: absolute;
+		top: 0px;
+		left: 100%;
+	}
+	&.navbar-default .navbar-nav>li>ul>li.menu-item-has-children:hover>ul {
+		display: block;
+	}
 }

@@ -1,0 +1,91 @@
+/*--------------------------------------------------------------
+# Static pages
+--------------------------------------------------------------*/
+
+@import "variables";
+@import "bower_components/bootswatch/paper/_variables.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss";
+
+.color-palette {
+
+  .patch {
+	display: inline-block;
+	min-width: 160px ;
+	padding-top: 32px ;
+	border-radius: 6px ;
+	background-color: #2D2D2D ;
+	margin-right: 12px ;
+
+	@each $name, $color in $palette {
+	  &.#{$name} { background-color: $color ; }
+	}
+
+	code {
+	  display: block;
+	  white-space: nowrap;
+	  vertical-align: bottom;
+	  background-color: $gray-lighter ;
+	  color: $gray-dark;
+		padding: 5px 8px ;
+	  border-radius: 0 0 4px 4px ;
+	}
+
+  }
+}
+
+.theme-spacer {
+  margin: ($padding-base-vertical * 2) auto;
+  border: 3px dashed $gray-light;
+  border-radius: $border-radius-base;
+  text-align: center;
+
+  & > div {
+    padding: ($padding-base-vertical * 4) 0;
+    color: $gray-light;
+    cursor: pointer;
+
+    @include transition(all 0.2s);
+
+    &:hover {
+      color: fade-out($brand-info,0.25) ;
+      background-color: fade-out($gray-light,0.7) ;
+    }
+  }
+
+  &.template {
+    display: none;
+  }
+
+  &:first-of-type {
+    margin-top: 25px;
+  }
+
+}
+
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+#home {
+  padding-top: 0px;
+  .navbar-brand {
+    padding: 13.5px 15px 12.5px;
+    > img {
+      display: inline;
+      margin: 0 10px;
+      height: 100%;
+    }
+  }
+}
