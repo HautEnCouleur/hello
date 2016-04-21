@@ -1,7 +1,8 @@
 form.navbar-form.navbar-right.search-form(role='search',method='get',action!=esc_url(home_url( '/' )))
-	.form-group
-		.input-group
-			input.form-control.search-field(type='text', name='s', title!=-esc_html_e( 'Search', '###' ), placeholder!=-esc_html_e( 'Search', '###' ), value!=get_search_query())
-			span.input-group-btn
-				button.btn.btn-default.search-submit(type='submit')
-					i.fa.fa-search
+  a.navbar-link.btn-back-offcanvas(href='#', data-toggle='offcanvas')
+    i.fa.fa-lg.fa-chevron-right
+  .form-group
+    .input-group.search
+      span.input-group-addon
+        i.fa.fa-lg.fa-search
+      input.form-control.search-field(type='text', name='s', title!=-esc_html_e( 'Search', '###' ), placeholder!=-esc_html_e( 'Search', '###' ), value!=get_search_query())

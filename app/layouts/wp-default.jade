@@ -10,20 +10,17 @@ html.no-js(__!=-language_attributes())
 		- wp_head();
 		
 	body(__!=-body_class())
-		#page.site
-			a.skip-link.screen-reader-text(href='#content')
-				- esc_html_e( 'Skip to content', '###' ) ;
+		#page.site.page-full-height
+			//- a.skip-link.screen-reader-text(href='#content')
+			//- 	- esc_html_e( 'Skip to content', '###' ) ;
 			
 			header#masthead.site-header(role='banner')
 				- $locations = get_nav_menu_locations();
-				nav#site-navigation.site-navigation.navbar.navbar-default.navbar-fixed-top(role='navigation')
-					.container
-						.navbar-header 
-							button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse') 
-								span.sr-only Toggle navigation 
-								span.icon-bar 
-								span.icon-bar 
-								span.icon-bar 
+				nav.navbar.navbar-inverse.navbar-static-top
+					.container-fluid
+						.navbar-header
+							a.navbar-toggle.collapsed(href='#', data-toggle='offcanvas', data-target='.offcanvas-sidebar')
+								i.fa.fa-lg.fa-bars
 							- if ( get_header_image() ) :
 							a.navbar-logo(href!=esc_url( home_url( '/' ) ))
 								img(src!=-header_image())
@@ -31,38 +28,33 @@ html.no-js(__!=-language_attributes())
 							a.navbar-brand(href!=esc_url( home_url( '/' ) ))
 								- bloginfo( 'name' );
 							- endif;
+						
+						#header-menu.offcanvas-xs
+										
+							- get_search_form();
 							
-						.navbar-collapse.collapse
 							ul.nav.navbar-nav
 							- if ( has_nav_menu( 'top-menu' ) ) :
 							- wp_nav_menu(array( 'container_class' => 'menu-header', 'theme_location' => 'top-menu', 'items_wrap' => '<ul id="%1$s" class="%2$s nav navbar-nav">%3$s</ul>', 'walker' => new BS3_Walker_Nav_Menu));
-							- endif;
-							
-							ul.nav.navbar-nav.navbar-right
-								li
-									- get_search_form();
+							- endif;				 
+
+							ul.nav.navbar-nav.navbar-right.language
+								- if( hello_is_plugin_active('lang') ) :
+									- qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
+								- endif;
 			
 			// #masthead
-			#content
+			#content.content
 				block content
-			
+			.push
 		// #page
-		// footer is OUT of the #page.site container  
+		// footer is OUT of the #page.site container	
 		footer#colophon.site-footer(role='contentinfo')
-			.container
+			.container-fluid
 				.row
 					.col-xs-12.col-md-4.footer-text
 						- hello_footer_text();
 					.col-xs-12.col-md-4
-						- if( hello_is_plugin_active('lang') ) :
-							nav.navbar.navbar-inverse
-								- qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
-						- endif;
-					.col-xs-12.col-md-4
-						nav.navbar.navbar-inverse
-							- if ( has_nav_menu( 'footer' ) ) :
-								- wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav navbar-nav navbar-right'  ) );
-							- endif;
 		// #colophon
 		- wp_footer();
 	// body

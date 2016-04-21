@@ -55,6 +55,14 @@ gulp.task('html', ['views', 'styles'], () => {
     .pipe(gulp.dest('dist/static'));
 });
 
+gulp.task('php', ['html'], () => {
+  return gulp.src('.tmp/**/*.php')
+    .pipe($.useref({
+      searchPath: ['.', '.tmp', '.tmp/includes', 'app', 'app/scripts', 'app/styles'],
+      }))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('views', () => {
   return gulp.src(['app/**/*.jade', '!app/layouts/**'])
     .pipe($.jade({
@@ -281,7 +289,8 @@ gulp.task( 'deploy:watch', () => {
 
 }) ;
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+// TODO : renable 'lint'
+gulp.task('build', ['php', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

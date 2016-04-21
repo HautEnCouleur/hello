@@ -1,92 +1,94 @@
 extends ../layouts/static
 
 block content
-  #page.site.page-full-height
-    header.site-header(role='banner')
-      nav.navbar.navbar-inverse.navbar-static-top
-        .container-fluid
-          .navbar-header
-            a.navbar-toggle.collapsed(href='#', data-toggle='offcanvas', data-target='.offcanvas-sidebar')
-              i.fa.fa-lg.fa-bars
-            a.navbar-brand(href='#') logo
-          
-          #header-menu.offcanvas-xs
-                  
-            form.navbar-form.navbar-right.search-form(role='search',method='get',action='/')
-              a.navbar-link.btn-back-offcanvas(href='#', data-toggle='offcanvas')
-                i.fa.fa-lg.fa-chevron-right
-              .form-group
-                .input-group.search
-                  span.input-group-addon
-                    i.fa.fa-lg.fa-search
-                  input.form-control(type='text',name='s',title='Search',placeholder='Search')
-            
-            ul.nav.navbar-nav
-              li
-                a(href='#') menu
-              li
-                a(href='#') navigation
-              li
-                a.dropdown-toggle(href='#', data-toggle='dropdown') category
-                  &nbsp;
-                  span.caret
-                ul.dropdown-menu
-                  li
-                    a(href='#') cat 01
-                  li
-                    a(href='#') cat 02
-                  li.divider
-                  li
-                    a(href='#') cat 03
-                  li.divider
-                  li
-                    a(href='#') last          
+	#page.site.page-full-height
+		header.site-header(role='banner')
+			nav.navbar.navbar-inverse.navbar-static-top
+				.container-fluid
+					.navbar-header
+						a.navbar-toggle.collapsed(href='#', data-toggle='offcanvas', data-target='.offcanvas-sidebar')
+							i.fa.fa-lg.fa-bars
+						a.navbar-brand(href='#') logo
+					
+					#header-menu.offcanvas-xs
+									
+						form.navbar-form.navbar-right.search-form(role='search',method='get',action='/')
+							a.navbar-link.btn-back-offcanvas(href='#', data-toggle='offcanvas')
+								i.fa.fa-lg.fa-chevron-right
+							.form-group
+								.input-group.search
+									span.input-group-addon
+										i.fa.fa-lg.fa-search
+									input.form-control(type='text',name='s',title='Search',placeholder='Search')
+						
+						ul.nav.navbar-nav
+							li
+								a(href='#') menu
+							li
+								a(href='#') navigation
+							li
+								a.dropdown-toggle(href='#', data-toggle='dropdown') category
+									&nbsp;
+									span.caret
+								ul.dropdown-menu
+									li
+										a(href='#') cat 01
+									li
+										a(href='#') cat 02
+									li.divider
+									li
+										a(href='#') cat 03
+									li.divider
+									li
+										a(href='#') last					
 
-            ul.nav.navbar-nav.navbar-right.language
-              li
-                a.dropdown-toggle(href='#', data-toggle='dropdown') 
-                  i.fa.fa-globe
-                  &emsp;
-                  span en
-                  &emsp;
-                  span.caret
-                ul.dropdown-menu
-                  li
-                    a(href='#') english
-                  li
-                    a(href='#') français
-                  li
-                    a(href='#') 日本語
-                  li
-                    a(href='#') español
-          
-    
-    .content
-      .container-fluid
-        .jumbotron.theme-spacer-container
-          h1 main content
-          p page | post | visual composer | woo commerce
-          p
-            button.btn.btn-primary.active#btn-full-height-page(type='button',data-toggle="button") full height page
-            button.btn.btn-primary#btn-add-spacer(type='button') add spacer
-          .theme-spacer.template
-            .remove-spacer
-              i.fa.fa-3x.fa-minus-circle
-            .add-spacer
-              i.fa.fa-3x.fa-plus-circle
-          
-    .push
-    
-  // footer is OUT of the #page.site container  
-  footer
-    .container-fluid
-      .row
-        .col-xs-12.col-md-4
-          h3 footer 
-            small - fixed height
-          .footer-text hello &copy; 2015 - MIT Licence
-              
-        .col-xs-12.col-md-4
-        
-  block scripts
-    script(src='../scripts/layout.js')
+						ul.nav.navbar-nav.navbar-right.language
+							li
+								a.dropdown-toggle(href='#', data-toggle='dropdown') 
+									i.fa.fa-globe
+									&emsp;
+									span en
+									&emsp;
+									span.caret
+								ul.dropdown-menu
+									li
+										a(href='#') english
+									li
+										a(href='#') français
+									li
+										a(href='#') 日本語
+									li
+										a(href='#') español
+					
+		
+		.content
+			.container-fluid
+				.jumbotron.theme-spacer-container
+					h1 main content
+					p page | post | visual composer | woo commerce
+					p
+						button.btn.btn-primary.active#btn-full-height-page(type='button',data-toggle="button") full height page
+						button.btn.btn-primary#btn-add-spacer(type='button') add spacer
+					.theme-spacer.template
+						.remove-spacer
+							i.fa.fa-3x.fa-minus-circle
+						.add-spacer
+							i.fa.fa-3x.fa-plus-circle
+					
+		.push
+		
+	// footer is OUT of the #page.site container	
+	footer
+		.container-fluid
+			.row
+				.col-xs-12.col-md-4
+					h3 footer 
+						small - fixed height
+					.footer-text hello &copy; 2015 - MIT Licence
+							
+				.col-xs-12.col-md-4
+				
+block scripts
+	// build:js ../scripts/layout.js
+	script(src='../scripts/layout.js')
+	// endbuild
