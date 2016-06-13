@@ -1,0 +1,19 @@
+{
+    "dev": {
+      "host": "ftp.your-awesome-server.com",
+      "port": "21",
+      "user": "awesome-ftp-user",
+      "password": "awesome-ftp-password",
+      "path": "/dev/wp-content/themes/hello"
+    },
+    "prod": {
+      "host": "ftp.your-awesome-server.com",
+      "port": "21",
+      "user": "awesome-ftp-user",
+      "password": "awesome-ftp-password",
+      "path": "/www/wp-content/themes/hello"
+    },
+    "local": {
+      "path": "../hec-shopshop/wordpress/wp-content/themes/hello"
+    }
+}

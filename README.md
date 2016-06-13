@@ -43,7 +43,7 @@ npm install -g gulp
 ```
 > npm run setup # ( npm install && bower install && babel gulpfile.babel.js --out-file gulpfile.js )
 ```
-4. create a file named `.deployrc` at the root of your working directory and fill it using this template
+4. create a file named `.deployrc` at the root of your working directory and fill it using this template (or just copy and rename the existing .deployrc-sample file to .deployrc)
 ```json
 {
     "dev": {

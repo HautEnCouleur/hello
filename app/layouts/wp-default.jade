@@ -38,9 +38,10 @@ html.no-js(__!=-language_attributes())
 							- wp_nav_menu(array( 'container_class' => 'menu-header', 'theme_location' => 'top-menu', 'items_wrap' => '<ul id="%1$s" class="%2$s nav navbar-nav">%3$s</ul>', 'walker' => new BS3_Walker_Nav_Menu));
 							- endif;				 
 
-							ul.nav.navbar-nav.navbar-right.language
+							.nav.navbar-nav.navbar-right.language
 								- if( hello_is_plugin_active('lang') ) :
-									- qtranxf_generateLanguageSelectCode(array('type' => 'text')) ;
+									- nav_language_switcher();
+									// - qtranxf_generateLanguageSelectCode(array('type' => 'dropdown')) ;
 								- endif;
 			
 			// #masthead
