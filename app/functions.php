@@ -170,3 +170,22 @@ function nav_link_att($atts, $item, $args) {
 }
 add_filter('nav_menu_link_attributes', 'nav_link_att', 10, 3);
 
+// ---- QtranslateX - BS Nav Language Switcher !!
+
+function nav_language_switcher(){
+	global $q_config;
+	if(is_404()) $url = get_option('home'); else $url = '';
+	echo 
+	"<ul class='nav navbar-nav navbar-right language'>
+	<li>
+		<a href='#' data-toggle='dropdown' class='dropdown-toggle'> 
+			<i class='fa fa-globe'></i> <span>".qtranxf_getLanguage()."</span> <span class='caret'></span>
+		</a>
+		<ul class='dropdown-menu'>";
+	foreach(qtranxf_getSortedLanguages() as $language) {
+		echo "<li><a href='".qtranxf_convertURL($url, $language, false, true)."'>".$q_config['language_name'][$language]."</a></li>";
+	}
+	echo "</ul>
+	</li>
+	</ul>";
+} 
