@@ -1,9 +1,26 @@
 @import "common/variables";
 
+@import "../../bower_components/bootswatch/paper/_variables.scss";
+
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
+
+@import "../../bower_components/jasny-bootstrap/scss/_variables.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_grid-container-smooth.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_button-labels.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_nav-tab-alignment.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_navmenu.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_alerts-fixed.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_offcanvas.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_rowlink.scss";
+@import "../../bower_components/jasny-bootstrap/scss/_fileinput.scss";
+
+@import "../../bower_components/bootswatch/paper/_bootswatch.scss";
+
+
 
 @import "common/global";
 @import "components/buttons";

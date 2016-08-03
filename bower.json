@@ -7,7 +7,14 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.6"
+    "bootstrap-sass": "3.3.6",
+    "bootswatch": "~3.3.7",
+    "jasny-bootstrap": "~3.1.3",
+    "modernizr": "~2.8.1",
+    "holderjs": "~2.8.2",
+    "headroom": "https://npmcdn.com/headroom.js@0.8.0/dist/headroom.js",
+    "jQuery.headroom": "https://npmcdn.com/headroom.js@0.8.0/dist/jQuery.headroom.js",
+    "font-awesome": "~4.6.3"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -32,5 +39,25 @@
         "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
       ]
     }
+  },
+  "jasny-bootstrap": {
+    "main": [
+      "scss/_variables.scss",
+      "scss/_grid-container-smooth.scss",
+      "scss/_button-labels.scss",
+      "scss/_nav-tab-alignment.scss",
+      "scss/_navmenu.scss",
+      "scss/_alerts-fixed.scss",
+      "scss/_offcanvas.scss",
+      "scss/_rowlink.scss",
+      "scss/_fileinput.scss",
+      "js/*"
+    ]
+  },
+  "font-awesome": {
+    "main": [
+      "scss/font-awesome.scss",
+      "fonts/*"
+    ]
   }
 }
