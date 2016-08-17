@@ -1,5 +1,21 @@
 <?php
 
+/*
+ * http://www.ordinarycoder.com/wordpress-bootstrap-3-with-wp_nav_menu/
+ */
+
+
+add_filter('nav_menu_link_attributes', 'nav_link_att', 10, 3);
+
+function nav_link_att($atts, $item, $args) {
+	if ( $args->has_children && $item->menu_item_parent == 0 )
+	{
+		$atts['data-toggle'] = 'dropdown';
+		$atts['class'] = 'dropdown-toggle';
+	}
+	return $atts;
+}
+
 class BS3_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {

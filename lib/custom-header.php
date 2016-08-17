@@ -7,38 +7,39 @@
  * You can add an optional custom header image to header.php like so ...
  *
  *
- * @package sage8
+ * @package hello
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses sage8_header_style()
- * @uses sage8_admin_header_style()
- * @uses sage8_admin_header_image()
+ * @uses hello_header_style()
+ * @uses hello_admin_header_style()
+ * @uses hello_admin_header_image()
  */
-function sage8_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'sage8_custom_header_args', array(
+function hello_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'hello_custom_header_args', array(
 		'default-image'          => '',
+		'default-mobile-image'   => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
-		'flex-width'            => true,
+		'flex-width'             => true,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'sage8_header_style',
-		'admin-head-callback'    => 'sage8_admin_header_style',
-		'admin-preview-callback' => 'sage8_admin_header_image',
+		'wp-head-callback'       => 'hello_header_style',
+		'admin-head-callback'    => 'hello_admin_header_style',
+		'admin-preview-callback' => 'hello_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'sage8_custom_header_setup' );
+add_action( 'after_setup_theme', 'hello_custom_header_setup' );
 
-if ( ! function_exists( 'sage8_header_style' ) ) :
+if ( ! function_exists( 'hello_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see sage8_custom_header_setup().
+ * @see hello_custom_header_setup().
  */
-function sage8_header_style() {
+function hello_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -71,15 +72,15 @@ function sage8_header_style() {
 	</style>
 	<?php
 }
-endif; // sage8_header_style
+endif; // hello_header_style
 
-if ( ! function_exists( 'sage8_admin_header_style' ) ) :
+if ( ! function_exists( 'hello_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see sage8_custom_header_setup().
+ * @see hello_custom_header_setup().
  */
-function sage8_admin_header_style() {
+function hello_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -99,15 +100,15 @@ function sage8_admin_header_style() {
 	</style>
 <?php
 }
-endif; // sage8_admin_header_style
+endif; // hello_admin_header_style
 
-if ( ! function_exists( 'sage8_admin_header_image' ) ) :
+if ( ! function_exists( 'hello_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see sage8_custom_header_setup().
+ * @see hello_custom_header_setup().
  */
-function sage8_admin_header_image() {
+function hello_admin_header_image() {
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text">
@@ -120,4 +121,4 @@ function sage8_admin_header_image() {
 	</div>
 <?php
 }
-endif; // sage8_admin_header_image
+endif; // hello_admin_header_image

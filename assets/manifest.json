@@ -12,6 +12,16 @@
       ],
       "main": true
     },
+    "admin.css": {
+      "files": [
+        "styles/admin.scss"
+      ]
+    },
+    "admin.js": {
+      "files": [
+        "scripts/admin.js"
+      ]
+    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"
@@ -22,6 +32,6 @@
     }
   },
   "config": {
-    "devUrl": "http://hec-sage8.kbox"
+    "devUrl": "http://onizuka/hec-site-v3a/"
   }
 }

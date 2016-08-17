@@ -16,7 +16,7 @@ function customize_register($wp_customize) {
 		'custom_footer_text',
 		[
 			'type' => 'theme_mod',
-			'default' => 'sage8 v0.1.0',
+			'default' => 'hello v0.1.0',
 			'transport' => 'postMessage' ,
 			'sanitize_callback' => 'sanitize_text_field',
 		]
@@ -46,6 +46,6 @@ add_action('customize_register', __NAMESPACE__ . '\\customize_register');
  * Customizer JS
  */
 function customize_preview_js() {
-  wp_enqueue_script('sage/customizer', Assets\asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
+  wp_enqueue_script('hello/customizer', Assets\asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
 }
 add_action('customize_preview_init', __NAMESPACE__ . '\\customize_preview_js');

@@ -18,7 +18,7 @@ function setup() {
 
   // Make theme available for translation
   // Community translations can be found at https://github.com/roots/sage-translations
-  load_theme_textdomain('sage', get_template_directory() . '/lang');
+  load_theme_textdomain('hello', get_template_directory() . '/lib/languages');
 
   // Enable plugins to manage the document title
   // http://codex.wordpress.org/Function_Reference/add_theme_support#Title_Tag
@@ -27,8 +27,8 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'sage') ,
-    'secondary_navigation' => __('Secondary Navigation', 'sage')
+    'primary_navigation' => __('Primary Navigation', 'hello') ,
+    'helper_navigation' => __('Helper Navigation', 'hello')
   ]);
 
   // Enable post thumbnails
@@ -46,10 +46,11 @@ function setup() {
   add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'sage8_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => ''
-	) ) );
+  // MOVED TO Redux framework
+	// add_theme_support( 'custom-background', apply_filters( 'hello_custom_background_args', array(
+	// 	'default-color' => 'ffffff',
+	// 	'default-image' => ''
+	// ) ) );
 
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
@@ -62,7 +63,7 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
  */
 function widgets_init() {
   register_sidebar([
-    'name'          => __('Primary', 'sage'),
+    'name'          => __('Primary', 'hello'),
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
@@ -71,13 +72,41 @@ function widgets_init() {
   ]);
 
   register_sidebar([
-    'name'          => __('Footer', 'sage'),
-    'id'            => 'sidebar-footer',
+    'name'          => __('Helper', 'hello'),
+    'id'            => 'sidebar-helper',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
     'before_title'  => '<h3>',
     'after_title'   => '</h3>'
   ]);
+
+  register_sidebar([
+  'name'          => __('Footer 1', 'hello'),
+  'id'            => 'sidebar-footer-1',
+  'before_widget' => '<section class="widget %1$s %2$s">',
+  'after_widget'  => '</section>',
+  'before_title'  => '<h3>',
+  'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+  'name'          => __('Footer 2', 'hello'),
+  'id'            => 'sidebar-footer-2',
+  'before_widget' => '<section class="widget %1$s %2$s">',
+  'after_widget'  => '</section>',
+  'before_title'  => '<h3>',
+  'after_title'   => '</h3>'
+  ]);
+
+  register_sidebar([
+    'name'          => __('Footer 3', 'hello'),
+    'id'            => 'sidebar-footer-3',
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3>',
+    'after_title'   => '</h3>'
+  ]);
+
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
 
@@ -95,19 +124,19 @@ function display_sidebar() {
     is_page_template('template-custom.php'),
   ]);
 
-  return apply_filters('sage/display_sidebar', $display);
+  return apply_filters('hello/display_sidebar', $display);
 }
 
 /**
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
+  wp_enqueue_style('hello/css', Assets\asset_path('styles/main.css'), false, null);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('hello/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
