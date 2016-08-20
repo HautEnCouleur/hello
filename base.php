@@ -29,6 +29,7 @@ use Roots\Sage\Wrapper;
           </aside><!-- /.sidebar -->
         <?php endif; ?>
       </div><!-- /.content -->
+      <div class="push"></div>
     </div><!-- /.wrap -->
     <?php
       do_action('get_footer');

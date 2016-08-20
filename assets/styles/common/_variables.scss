@@ -12,7 +12,7 @@ $palette: (
   "main" : #00011B ,
   "main-light" : #172D3C ,
   "main-lighter" : #335872 ,
-  "inverse" : #fff ,
+  "main-inverse" : #fff ,
   "alt" : #D3AC4F ,
   "alt-light" : #E5E5DD ,
   "info" : #360F29 ,
@@ -31,7 +31,7 @@ $palette-alpha: 0.7;
 
 // USAGE : map-get( $palette, "color-dark-gray" );
 
-$text-inverse-color: fade-out(map-get( $palette, "inverse" ),0.3);
+$text-inverse-color: fade-out(map-get( $palette, "main-inverse" ),0.3);
 
 $gray-lighter: map-get( $palette, "alt-light" );
 
@@ -50,8 +50,7 @@ $jumbotron-bg: $gray-lighter;
 $spacer-vertical: 50px ;
 $slider-height: 512px ;
 
-$footer-margin-top-fix: 15.5px ;
-$footer-height: 200px;
+$footer-height: 230px;
 
 $header-search-input-size: 200px;
 

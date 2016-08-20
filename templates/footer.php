@@ -22,12 +22,12 @@
 
         <?php foreach ($contact as $o) : ?>
           <?php if ( hello_isset($o['slug']) ) : ?>
-            <div class="media">
+            <div class="media contact">
               <div class="media-left media-middle">
-                <i class="<?= $o['icon'] ?> fa-fw fa-2x"></i>
+                <i class="media-object <?= $o['icon'] ?> fa-fw fa-2x"></i>
               </div>
               <div class="media-body">
-                <p><?= hello_opt($o['slug']) ?></p>
+                <?= hello_opt($o['slug']) ?>
               </div>
             </div>
           <?php endif; ?>

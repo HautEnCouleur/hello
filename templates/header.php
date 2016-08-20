@@ -33,8 +33,7 @@
         ?>
         <button role="button" class="btn btn-link navbar-btn"><i class="fa fa-search"></i></button>
       </div>
-
-
+      
       <div class="hidden-xs">
 
         <div class="slogan">

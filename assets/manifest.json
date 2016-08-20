@@ -32,6 +32,6 @@
     }
   },
   "config": {
-    "devUrl": "http://onizuka/hec-site-v3a/"
+    "devUrl": "http://hec-site-v3a.kbox/"
   }
 }
