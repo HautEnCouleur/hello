@@ -139,4 +139,4 @@ Keep track of development and community news.
 
 ---
 
-Test commit :rocket: :bang: 
+Test commit :rocket: 
