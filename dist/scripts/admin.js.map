@@ -1,1 +1,0 @@
-{"version":3,"sources":["../assets/scripts/admin.js"],"names":["$","console","log","jQuery"],"mappings":"CAAA,SAAAA,GACAC,QAAAC,IAAA,8BACAC","file":"admin.js","sourcesContent":["(function($) {\n  console.log('hello admin script loaded');\n})(jQuery);\n"],"sourceRoot":"assets/scripts/"}
