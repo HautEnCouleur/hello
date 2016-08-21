@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+  margin: 0 !important;
+}
+
+body > footer {
+
+  height: $footer-height;
+  clear: both;
+
+}
+
+.wrap {
+
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto (-1 * $footer-height) ;
+
+  .push {
+    height: $footer-height;
+    clear: both;
+  }
+
+}

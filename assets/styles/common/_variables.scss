@@ -1,0 +1,57 @@
+// Glyphicons font path
+$icon-font-path: "../fonts/" !default;
+$fa-font-path: "../fonts" !default;
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// Colors
+
+$palette: (
+  "main" : #00011B ,
+  "main-light" : #172D3C ,
+  "main-lighter" : #335872 ,
+  "main-inverse" : #fff ,
+  "alt" : #D3AC4F ,
+  "alt-light" : #E5E5DD ,
+  "info" : #360F29 ,
+  "info-light" : #5D2B48 ,
+  "alt-info" : #2196F3 ,
+  "alt-info-light" : #bce0fc ,
+  "success" : #27ae60 ,
+  "success-light" : #27ae60 ,
+  "warning" : #CE4121 ,
+  "warning-light" : #E95C30 ,
+  "danger" : #C21B40 ,
+  "danger-light" : #DE3157
+);
+
+$palette-alpha: 0.7;
+
+// USAGE : map-get( $palette, "color-dark-gray" );
+
+$text-inverse-color: fade-out(map-get( $palette, "main-inverse" ),0.3);
+
+$gray-lighter: map-get( $palette, "alt-light" );
+
+$brand-primary: map-get( $palette, "main-light" );
+$brand-info: map-get( $palette, "alt-info" );
+
+
+$state-info-bg: map-get( $palette, "alt-light" );
+
+$navbar-inverse-bg: map-get( $palette, "main" );
+$navbar-inverse-link-color: $text-inverse-color;
+$navbar-inverse-link-active-bg: darken($brand-primary, 5%);
+
+$jumbotron-bg: $gray-lighter;
+
+$spacer-vertical: 50px ;
+$slider-height: 512px ;
+
+$footer-height: 230px;
+
+$header-search-input-size: 200px;
+
+$navbar-height: 90px ;

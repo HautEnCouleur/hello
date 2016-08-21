@@ -1,0 +1,16 @@
+footer.content-info {
+  border-top: 2px solid map-get( $palette, "alt" );
+  background-color: map-get( $palette, "alt-light" );
+
+  h1, h2, h3, h4, h5 {
+    color: map-get( $palette, "main" );
+  }
+
+  h3 {
+    margin-top: $padding-base-vertical ;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+}
